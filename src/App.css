@@ -1,0 +1,236 @@
+@font-face {
+  font-family: 'DoomFont';
+  src: url('https://fonts.cdnfonts.com/s/19894/PressStart2P-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'DoomFont', monospace;
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+}
+
+.doom-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.doom-title {
+  font-size: 4rem;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  margin-bottom: 2rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  }
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1508614999368-9260051292e5?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.menu-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.menu-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-button {
+  background-color: #300;
+  color: #ff0000;
+  border: 2px solid #ff0000;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  font-family: 'DoomFont', monospace;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 250px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+  background-color: #ff0000;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.settings-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid #ff0000;
+  padding: 2rem;
+  width: 400px;
+  max-width: 90vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.settings-title {
+  color: #ff0000;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.settings-label {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.settings-slider {
+  width: 200px;
+}
+
+.settings-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.game-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hud {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.health, .ammo {
+  display: flex;
+  align-items: center;
+}
+
+.health-value, .ammo-value {
+  color: #ff0000;
+  font-size: 2rem;
+  margin-left: 0.5rem;
+}
+
+.weapon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  z-index: 5;
+}
+
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.game-over-text {
+  color: #ff0000;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.crosshair::before,
+.crosshair::after {
+  content: '';
+  position: absolute;
+  background-color: #ff0000;
+}
+
+.crosshair::before {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.crosshair::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
